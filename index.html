@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulei's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <style>
+        /* Custom CSS for smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom background for home section */
+        .home-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Stats section background */
+        .stats-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Custom card hover effect */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Testimonial card styling */
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Active nav link styling */
+        .nav-link.active {
+            color: #10B981;
+            border-bottom: 2px solid #10B981;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-gray-800 shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-emerald-400 text-xl font-bold">Mulei's Portfolio</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">Home</a>
+                        <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">About</a>
+                        <a href="#services" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">Services</a>
+                        <a href="#resume" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">Resume</a>
+                        <a href="#portfolio" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">Portfolio</a>
+                        <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium hover:text-emerald-400 transition duration-300">Contact</a>
+                    </div>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">Home</a>
+                <a href="#about" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">About</a>
+                <a href="#services" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">Services</a>
+                <a href="#resume" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">Resume</a>
+                <a href="#portfolio" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">Portfolio</a>
+                <a href="#contact" class="nav-link block px-3 py-2 rounded-md text-base font-medium hover:text-emerald-400 transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="home-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">Hi, I'm <span class="text-emerald-400">Mulei</span></h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">Web Developer & Designer from Nairobi, Kenya</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#about" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium transition duration-300">About Me</a>
+                <a href="#contact" class="border border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-white px-6 py-3 rounded-full font-medium transition duration-300">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">About <span class="text-emerald-400">Me</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Grid - Profile Picture and Details -->
+                <div>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Profile Picture" class="rounded-lg shadow-lg w-full max-w-md mx-auto mb-6">
+                    
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-emerald-400">Personal Details</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-user mr-3 text-emerald-400"></i>
+                                <span>Name: Mulei</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-calendar-alt mr-3 text-emerald-400"></i>
+                                <span>Age: 28</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-3 text-emerald-400"></i>
+                                <span>Location: Nairobi, Kenya</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-envelope mr-3 text-emerald-400"></i>
+                                <span>Email: mulei@example.com</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-phone mr-3 text-emerald-400"></i>
+                                <span>Phone: +254 700 123456</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-lg font-medium mb-3 text-emerald-400">Connect With Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-300 hover:text-emerald-400 transition duration-300">
+                                    <i class="fab fa-twitter text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-emerald-400 transition duration-300">
+                                    <i class="fab fa-linkedin text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-emerald-400 transition duration-300">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-emerald-400 transition duration-300">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-emerald-400 transition duration-300">
+                                    <i class="fab fa-facebook text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Grid - About Me -->
+                <div class="flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-6 text-emerald-400">Who Am I?</h3>
+                    <p class="text-gray-300 mb-4">
+                        I'm a passionate web developer and designer with over 5 years of experience creating beautiful, functional, and user-friendly websites. My journey in tech started when I was just a teenager, and I've been hooked ever since.
+                    </p>
+                    <p class="text-gray-300 mb-4">
+                        I specialize in front-end development with expertise in HTML, CSS, JavaScript, and modern frameworks like React and Vue.js. I also have experience with back-end technologies including Node.js and PHP.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        When I'm not coding, you can find me hiking in the beautiful Kenyan landscapes, reading tech blogs, or mentoring young developers in my community.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <h4 class="font-semibold text-emerald-400 mb-2">Web Development</h4>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-emerald-400 mb-2">UI/UX Design</h4>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-emerald-400 mb-2">Mobile Development</h4>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-emerald-400 mb-2">SEO Optimization</h4>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium transition duration-300 w-max">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">My <span class="text-emerald-400">Services</span></h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">I offer a wide range of web development and design services to help your business grow online.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-code text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Web Development</h3>
+                    <p class="text-gray-400 mb-4">Custom website development tailored to your business needs using modern technologies and best practices.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 2 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-paint-brush text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">UI/UX Design</h3>
+                    <p class="text-gray-400 mb-4">Beautiful and intuitive user interfaces designed to enhance user experience and engagement.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 3 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-mobile-alt text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Mobile Development</h3>
+                    <p class="text-gray-400 mb-4">Cross-platform mobile applications that work seamlessly on both iOS and Android devices.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 4 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-search-dollar text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">SEO Optimization</h3>
+                    <p class="text-gray-400 mb-4">Improve your website's visibility on search engines and drive more organic traffic to your business.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 5 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-shopping-cart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">E-commerce Solutions</h3>
+                    <p class="text-gray-400 mb-4">Complete e-commerce solutions to help you sell products or services online effectively.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Service Card 6 -->
+                <div class="service-card bg-gray-800 p-6 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700">
+                    <div class="text-emerald-400 mb-4">
+                        <i class="fas fa-server text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Web Hosting</h3>
+                    <p class="text-gray-400 mb-4">Reliable and secure web hosting services with 99.9% uptime guarantee and 24/7 support.</p>
+                    <a href="service-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                        Learn More <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">My <span class="text-emerald-400">Resume</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Grid - Summary and Education -->
+                <div>
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg mb-8">
+                        <h3 class="text-xl font-semibold mb-4 text-emerald-400">Summary</h3>
+                        <p class="text-gray-300 mb-4">
+                            Creative and detail-oriented web developer with 5+ years of experience designing and building responsive websites and web applications. Strong background in front-end development and UI/UX design.
+                        </p>
+                        <ul class="text-gray-300 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-emerald-400 mr-2 mt-1"></i>
+                                <span>Proficient in HTML, CSS, JavaScript, and modern frameworks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-emerald-400 mr-2 mt-1"></i>
+                                <span>Strong problem-solving skills and attention to detail</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-emerald-400 mr-2 mt-1"></i>
+                                <span>Excellent communication and teamwork abilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-emerald-400 mr-2 mt-1"></i>
+                                <span>Passionate about creating intuitive user experiences</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Education</h3>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative pb-8">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Bachelor of Science in Computer Science</h4>
+                            <p class="text-gray-400 mb-1">University of Nairobi • 2015 - 2019</p>
+                            <p class="text-gray-300">Graduated with First Class Honors. Specialized in Software Engineering and Human-Computer Interaction.</p>
+                        </div>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative pb-8">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Web Development Bootcamp</h4>
+                            <p class="text-gray-400 mb-1">Moringa School • 2018</p>
+                            <p class="text-gray-300">Intensive 3-month program focusing on full-stack web development with JavaScript, Node.js, and React.</p>
+                        </div>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Advanced UI/UX Design</h4>
+                            <p class="text-gray-400 mb-1">Udemy Online Course • 2020</p>
+                            <p class="text-gray-300">Completed comprehensive course on user interface design principles and user experience best practices.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Grid - Professional Experience -->
+                <div>
+                    <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Professional Experience</h3>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative pb-8">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Senior Web Developer</h4>
+                            <p class="text-gray-400 mb-1">TechSolutions Africa • 2021 - Present</p>
+                            <p class="text-gray-300 mb-2">Lead a team of developers in building custom web applications for clients across various industries.</p>
+                            <ul class="text-gray-300 space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Developed and maintained 15+ client websites with 99.9% uptime</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Implemented CI/CD pipelines reducing deployment time by 40%</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Mentored junior developers and conducted code reviews</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative pb-8">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Web Developer</h4>
+                            <p class="text-gray-400 mb-1">Digital Creations Ltd • 2019 - 2021</p>
+                            <p class="text-gray-300 mb-2">Developed responsive websites and web applications for small and medium businesses.</p>
+                            <ul class="text-gray-300 space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Built 30+ websites with custom CMS solutions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Improved website loading speeds by 60% through optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Collaborated with designers to implement UI mockups</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border-l-2 border-emerald-400 pl-6 relative">
+                            <div class="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-emerald-400"></div>
+                            <h4 class="text-lg font-medium text-white mb-1">Freelance Developer</h4>
+                            <p class="text-gray-400 mb-1">Self-Employed • 2017 - 2019</p>
+                            <p class="text-gray-300 mb-2">Worked with various clients to build websites and small web applications.</p>
+                            <ul class="text-gray-300 space-y-1">
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Completed 50+ projects for clients in 10 different industries</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Developed custom WordPress themes and plugins</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-caret-right text-emerald-400 mr-2 mt-1"></i>
+                                    <span>Provided ongoing maintenance and support services</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-4 text-white">My <span class="text-emerald-400">Portfolio</span></h2>
+            <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">Here are some of my recent projects. Each one was carefully crafted to meet client requirements and deliver exceptional results.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="E-commerce Website" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">E-commerce Platform</h3>
+                        <p class="text-gray-400 mb-4">A full-featured online store with product management, cart functionality, and secure checkout.</p>
+                        <a href="portfolio-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Travel Blog" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Travel Blog Platform</h3>
+                        <p class="text-gray-400 mb-4">A responsive travel blog with interactive maps, photo galleries, and social sharing features.</p>
+                        <a href="portfolio-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Health App" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2 text-white">Health & Fitness App</h3>
+                        <p class="text-gray-400 mb-4">A mobile-first web application for tracking workouts, nutrition, and health metrics.</p>
+                        <a href="portfolio-details.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center">
+                            View Project <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium transition duration-300 inline-flex items-center">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg">
+                    <div class="text-emerald-400 text-4xl font-bold mb-2">150+</div>
+                    <div class="text-white font-medium">Happy Clients</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg">
+                    <div class="text-emerald-400 text-4xl font-bold mb-2">200+</div>
+                    <div class="text-white font-medium">Projects Completed</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg">
+                    <div class="text-emerald-400 text-4xl font-bold mb-2">5000+</div>
+                    <div class="text-white font-medium">Hours of Support</div>
+                </div>
+                <div class="bg-gray-800 bg-opacity-70 p-6 rounded-lg">
+                    <div class="text-emerald-400 text-4xl font-bold mb-2">15+</div>
+                    <div class="text-white font-medium">Awards Won</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Client <span class="text-emerald-400">Testimonials</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah J." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-white font-medium">Sarah J.</h4>
+                            <p class="text-emerald-400 text-sm">CEO, TechSolutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Mulei transformed our outdated website into a modern, responsive platform that perfectly represents our brand. His attention to detail and communication throughout the project were exceptional."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David K." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-white font-medium">David K.</h4>
+                            <p class="text-emerald-400 text-sm">Marketing Director</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Working with Mulei was a game-changer for our e-commerce platform. He not only delivered on time but also provided valuable insights that improved our conversion rate by 30%."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Grace M." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-white font-medium">Grace M.</h4>
+                            <p class="text-emerald-400 text-sm">Founder, TravelBlog</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "Mulei's design skills are outstanding. He created a beautiful, user-friendly interface for our travel blog that our readers love. His responsiveness to feedback was impressive."
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card bg-gray-700 p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Robert W." class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="text-white font-medium">Robert W.</h4>
+                            <p class="text-emerald-400 text-sm">CTO, HealthTech</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">
+                        "We hired Mulei to develop a complex health tracking application. His technical expertise and problem-solving skills were evident throughout the project. Highly recommended!"
+                    </p>
+                    <div class="mt-4 text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 text-white">Contact <span class="text-emerald-400">Me</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Left Grid - Contact Info -->
+                <div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Get In Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-emerald-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-1">Location:</h4>
+                                    <p class="text-gray-400">Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-emerald-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-1">Email:</h4>
+                                    <p class="text-gray-400">mulei@example.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-emerald-500 bg-opacity-20 p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-emerald-400"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-medium text-white mb-1">Call:</h4>
+                                    <p class="text-gray-400">+254 700 123456</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-white mb-4">Follow Me:</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-700 hover:bg-emerald-500 text-white p-3 rounded-full transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-gray-700 hover:bg-emerald-500 text-white p-3 rounded-full transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-700 hover:bg-emerald-500 text-white p-3 rounded-full transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-700 hover:bg-emerald-500 text-white p-3 rounded-full transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-gray-700 hover:bg-emerald-500 text-white p-3 rounded-full transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-medium text-white mb-4">Location Map:</h4>
+                            <div class="bg-gray-700 rounded-lg overflow-hidden">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.797565424673!2d36.82155231475408!3d-1.292503599054144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d3b2be5e3f%3A0x8620543dfd6e71ed!2sNairobi%20City%20Centre%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1623849400000!5m2!1sen!2ske" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Grid - Contact Form -->
+                <div>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold mb-6 text-emerald-400">Send Me a Message</h3>
+                        
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                                    <input type="text" id="name" name="name" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+                                    <input type="email" id="email" name="email" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                                <textarea id="message" name="message" rows="5" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-medium transition duration-300 w-full">
+                                Send Message
+                            </button>
+                        </form>
+                        
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-emerald-500 bg-opacity-20 text-emerald-400 rounded-lg">
+                            Your message has been sent successfully!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2025 Mulei's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-emerald-500 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offset = 70; // Adjust for fixed navbar height
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(() => {
+                document.getElementById('formSuccess').classList.remove('hidden');
+                this.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('formSuccess').classList.add('hidden');
+                }, 5000);
+            }, 1000);
+        });
+
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
