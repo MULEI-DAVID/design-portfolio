@@ -15,15 +15,47 @@
         
         /* Custom background for home section */
         .home-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/images/person1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }
-        
+        .skills .progress {
+  height: 60px;
+  display: block;
+  background: none;
+  border-radius: 0;
+}
+
+.skills .progress .skill {
+  color:#10B981;
+  padding: 0;
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  font-family: #10B981;
+}
+
+.skills .progress .skill .val {
+  float: right;
+  font-style: normal;
+}
+
+.skills .progress-bar-wrap {
+  background: #10B981, transparent 90%;
+  height: 10px;
+}
+
+.skills .progress-bar {
+  width: 1px;
+  height: 10px;
+  transition: 0.9s;
+  background-color: #10B981;
+}
         /* Stats section background */
         .stats-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('assets/images/sunset.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -111,18 +143,18 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Left Grid - Profile Picture and Details -->
                 <div>
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Profile Picture" class="rounded-lg shadow-lg w-full max-w-md mx-auto mb-6">
+                    <img src="assets\images\profile image.jpg" alt="Profile Picture" class="rounded-lg shadow-lg w-full max-w-md mx-auto mb-6">
                     
                     <div class="bg-gray-700 p-6 rounded-lg shadow-lg">
                         <h3 class="text-xl font-semibold mb-4 text-emerald-400">Personal Details</h3>
                         <ul class="space-y-2">
                             <li class="flex items-center">
                                 <i class="fas fa-user mr-3 text-emerald-400"></i>
-                                <span>Name: Mulei</span>
+                                <span>Name: Mulei David</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-calendar-alt mr-3 text-emerald-400"></i>
-                                <span>Age: 28</span>
+                                <span>Age: 24</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-map-marker-alt mr-3 text-emerald-400"></i>
@@ -130,11 +162,11 @@
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-envelope mr-3 text-emerald-400"></i>
-                                <span>Email: mulei@example.com</span>
+                                <span>Email: davidmulei899@gmail.com</span>
                             </li>
                             <li class="flex items-center">
                                 <i class="fas fa-phone mr-3 text-emerald-400"></i>
-                                <span>Phone: +254 700 123456</span>
+                                <span>Phone: +254 705853355</span>
                             </li>
                         </ul>
                         
@@ -174,34 +206,76 @@
                         When I'm not coding, you can find me hiking in the beautiful Kenyan landscapes, reading tech blogs, or mentoring young developers in my community.
                     </p>
                     
-                    <div class="grid grid-cols-2 gap-4 mb-6">
-                        <div>
-                            <h4 class="font-semibold text-emerald-400 mb-2">Web Development</h4>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-emerald-400 mb-2">UI/UX Design</h4>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-emerald-400 mb-2">Mobile Development</h4>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-semibold text-emerald-400 mb-2">SEO Optimization</h4>
-                            <div class="w-full bg-gray-700 rounded-full h-2.5">
-                                <div class="bg-emerald-500 h-2.5 rounded-full" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
+            <section id="skills" class="skills section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Skills</h2>
+        <p> Here's a glimpse into the toolbox that powers my endeavors.</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row skills-content skills-animation">
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>HTML</span> <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>CSS</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>JavaScript</span> <i class="val">60%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+          </div>
+
+          <div class="col-lg-6">
+
+            <div class="progress">
+              <span class="skill"><span>PHP</span> <i class="val">80%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>WordPress/CMS</span> <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+            <div class="progress">
+              <span class="skill"><span>Python</span> <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </div><!-- End Skills Item -->
+
+                 <a href="assests\images\portfolio\My CV.pdf" class="btn btn-primary:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium transition duration-300" download>Download CV</a>  
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
                     
-                    <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-full font-medium transition duration-300 w-max">Hire Me</a>
+                  
                 </div>
             </div>
         </div>
