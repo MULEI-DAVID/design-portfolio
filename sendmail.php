@@ -3,7 +3,7 @@
 $host = "localhost";
 $dbname = "portfolio";
 $username = "root";
-$password = ""; // Change if your MySQL password is set
+$password = "";
 
 $conn = new mysqli($host, $username, $password, $dbname);
 
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name    = htmlspecialchars($_POST['name']);
     $email   = htmlspecialchars($_POST['email']);
     $subject = htmlspecialchars($_POST['subject']);
-    $message = htmlspecialchars($_POST['message']);
+    $message = htmlspecialchars($_POST['message']); 
 
     // Insert into database
     $stmt = $conn->prepare("INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)");
